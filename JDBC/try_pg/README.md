@@ -1,1 +1,1 @@
-                        First JDBC DEmo from retrieval of data from Postgressql
+                        First JDBC Demo from retrieval of data from Postgressql
