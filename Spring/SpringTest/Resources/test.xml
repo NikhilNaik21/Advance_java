@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean id="emp1" class="com.met.model.Employee" scope="singleton">
+      <!-- Employee emp1 = new Employee(); -->
+    </bean>
+    
+    <bean id="emp2" class="com.met.model.Employee" scope="singleton"></bean>
+    
+    <bean id="emp3" class="com.met.model.Employee" scope="prototype"></bean>
+    
+    <bean id="emp4" class="com.met.model.Employee" scope="singleton">
+     <constructor-arg name="name" value="Ajay"></constructor-arg>
+    <constructor-arg name="age" value="22"></constructor-arg>
+    </bean>
+    
+        <bean id="emp5" class="com.met.model.Employee" >
+     <constructor-arg index="0" value="24"></constructor-arg>
+    <constructor-arg index="1" value="Ramesh"></constructor-arg>
+    </bean>  
+    
+       <bean id="emp6" class="com.met.model.Employee">
+     	<property name="name"  value="Jill"></property>
+   		<property name="age"  value="23"></property>
+   		<property name="salary"  value="65000"></property>
+   		 <property name="designation"  value="Developer"></property>
+   		  
+    </bean>
+    
+   <!--  wont be created during initialization and can be used multiple times w/o making multiple object -->
+     <bean id="emp8" class="com.met.model.Employee" lazy-init ="true">
+     <constructor-arg name="name" value="Nikhil"></constructor-arg>
+    <constructor-arg name="age" value="22"></constructor-arg>
+    </bean>
+    
+    <bean id="Address1" class="com.met.model.Address">
+    <property name="city" value="London"></property>
+     <property name="country" value="England"></property>
+     </bean>
+    
+       <bean id="emp9" class="com.met.model.Employee" >
+     <constructor-arg name="name" value="Rohan"></constructor-arg>
+    <constructor-arg name="age" value="22"></constructor-arg>
+    <constructor-arg name="salary" value="56780"></constructor-arg>
+    <constructor-arg name="designation" value="S.E.S"></constructor-arg>
+    <constructor-arg name="address" ref="Address1"></constructor-arg>
+    </bean>
+    
+    <bean id="stage1" class="com.met.model.Stage" factory-method="getStage"></bean>
+    <bean id="stage2" class="com.met.model.Stage" factory-method="getStage"></bean>
+</beans>
